@@ -1,0 +1,11 @@
+RewriteEngine on 
+
+RewriteRule ^home$ home.php [L]
+RewriteRule ^admin$ admin.php [L]
+RewriteRule ^waiter$ waiter.php [L]
+RewriteRule ^chef$ chef.php [L]
+RewriteRule ^customerservice$ cs.php [L]
+RewriteRule ^pantry$ pantry.php [L]
+RewriteRule ^cashier$ cashier.php [L]
+
+Options All -Indexes
