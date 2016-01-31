@@ -6,6 +6,6 @@ $query = "DELETE FROM ingredients WHERE ingredient_id = '$id'";
 $sql = mysql_query($query);
 if ($sql) {
 	echo '<script>alert("Data successfully deleted")</script>';
-	header("location: ../pantry");
+	header("location: ../pantry.php");
 }
 ?>
