@@ -56,7 +56,9 @@ $sql_view = mysql_query($view);
                             </li>
                         </ul>
                     </li>
-                    <li class="button"><a href="#">Order !</a></li>
+                    <li>
+                        <button type="submit" name="order" class="btn btn-primary" style="margin-bottom:5px;">Order</button>
+                    </li>
                 </ul>
             </li>
         </ul>

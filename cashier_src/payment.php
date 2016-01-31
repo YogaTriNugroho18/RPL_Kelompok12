@@ -1,11 +1,10 @@
 <?php 
 // include('cs_src/insert.php');
-// include('cs_src/edit.php');
+// include('cashier_src/bill.php');
 // include('cs_src/delete.php');
 
-$query = "SELECT payments.payment_id, payments.employee_id, orders.order_id, orders.qty, menus.menu_id, menus.menu_name, menus.menu_price, menus.menu_discount, payments.table_id, payments.total_price, payments.status FROM payments JOIN orders USING (order_id) JOIN menus USING (menu_id)";
+$query = "SELECT * FROM payments";
 $sql = mysql_query($query);
-// $sql = mysql_query($query);
 ?>
 <div id="menu-1" class="about content">
     <div class="row">
@@ -19,15 +18,16 @@ $sql = mysql_query($query);
                     <table id="datatables-payment" class="table highlight table-bordered" cellspacing="0">
                         <thead>
                             <tr>
-                                <th class="text-center">Order ID</th>
+                                <th class="text-center">Payment ID</th>
+                                <th class="text-center">Employee ID</th>
                                 <th class="text-center">Table ID</th>
-                                <th class="text-center">Menu</th>
-                                <th class="text-center">Price</th>
-                                <th class="text-center">Discount</th>
-                                <th class="text-center">QTY</th>
-                                <th class="text-center">Total Price</th>
+                                <th class="text-center">Ordered Menu</th>
+                                <th class="text-center">Subtotal</th>
+                                <th class="text-center">Tax</th>
+                                <th class="text-center">Total</th>
                                 <th class="text-center">Status</th>
                                 <th class="text-center">Action</th>
+                                <th class="text-center">Print</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -40,22 +40,33 @@ $sql = mysql_query($query);
                                     $status = 'Paid';
                                 }
 
-                                $disc = ($data['menu_discount'] / 100 * $data['menu_price']);
-                                $disc_total = $disc * $data['qty'];
-
-                                $total_pay = $data['total_price'] - $disc_total;
                             ?>
                                 <tr>
-                                    <td class="text-center"><?php echo $data['order_id']; ?></td>
+                                    <td class="text-center"><?php echo $data['payment_id']; ?></td>
+                                    <td class="text-center"><?php echo $data['employee_id']; ?></td>
                                     <td class="text-center"><?php echo $data['table_id']; ?></td>
-                                    <td class="text-center"><?php echo $data['menu_name']; ?></td>
-                                    <td class="text-center"><?php echo '$' . $data['menu_price']; ?></td>
-                                    <td class="text-center"><?php echo '$' . $disc_total; ?></td>
-                                    <td class="text-center"><?php echo $data['qty']; ?></td>
-                                    <td class="text-center"><?php echo '$' . $total_pay; ?></td>
+                                    <td class="text-center"><?php echo $data['menu']; ?></td>
+                                    <td class="text-center"><?php echo '$' . $data['subtotal']; ?></td>
+                                    <td class="text-center"><?php echo ($data['tax'] * 100) . '%'; ?></td>
+                                    <td class="text-center"><?php echo '$' . $data['total']; ?></td>
                                     <td class="text-center"><?php echo $status; ?></td>
                                     <td class="text-center">
-                                        <a data-toggle="modal" data-id="<?php echo $id; ?>" data-name="<?php echo $data['employee_name']; ?>" data-type="<?php echo $data['employee_type']; ?>" class="open-EditEmp btn btn-warning" href="#edit"><span class="fa fa-pencil"></span> Edit</a>
+                                    <?php 
+                                        if ($data['status'] == '0') {
+                                        ?>
+                                            <form method="post" action="cashier_src/paid.php?id=<?php echo $id; ?>">
+                                                <button type="submit" class="btn btn-warning" name="paid">Pay</button>
+                                            </form>
+                                        <?php
+                                        } else {
+                                            echo'<button class="btn btn-success">Paid</button>';
+                                        }
+                                    ?>
+                                    </td>
+                                    <td>
+                                        <form method="post" action="cashier_src/print.php?id=<?php echo $id; ?>">
+                                            <button type="submit" class="btn btn-primary" name="print"><span class="fa fa-print"></span></button>  
+                                        </form>
                                     </td>
                                 </tr>
                             <?php 

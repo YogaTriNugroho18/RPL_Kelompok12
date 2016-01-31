@@ -39,7 +39,7 @@ include('function/isSecure.php');
                         <ul class="menu">
                             <li><a class="homebutton" href="cashier" >Home</a></li>
                             <li><a class="show-1" href="#">Payment</a></li>
-                            <li><a class="show-3" href="#">Bla Bla Bla</a></li>
+                            <li><a class="show-3" href="#">Report</a></li>
                             <li><a href="logout.php">Logout</a></li>
                         </ul> <!-- /.menu -->
                         <a href="#" class="toggle-menu"><i class="fa fa-bars"></i></a>
@@ -50,6 +50,8 @@ include('function/isSecure.php');
     		<div class="col-md-8 col-sm-12">
     			<div id="menu-container">
     				<?php require('cashier_src/payment.php'); ?>
+
+                    <?php require('cashier_src/report.php'); ?>
     			</div>
     		</div>
     	</div>
