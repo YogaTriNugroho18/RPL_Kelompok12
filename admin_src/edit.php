@@ -20,7 +20,7 @@
                         	$sql_update = mysql_query($update_query);
 
                         	if ($sql_update) {
-                        		echo'<script>alert("Data successfully updated.");window.location="admin";</script>';
+                        		echo'<script>alert("Data successfully updated.");window.location="admin.php";</script>';
                         	} else {
                         		echo "Error :" . mysql_error();
                         	}
