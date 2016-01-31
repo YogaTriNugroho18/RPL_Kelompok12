@@ -25,7 +25,7 @@
                             if ($exp > $data['entry_date']) {
                                 $update_query = mysql_query("UPDATE ingredients SET stock = '$stock', exp_date = '$exp' WHERE ingredient_id = '$ingredientId'");
                                 if ($update_query) {
-                                    echo'<script>alert("Data successfully updated.");window.location="pantry";</script>';
+                                    echo'<script>alert("Data successfully updated.");window.location="pantry.php";</script>';
                                 } else {
                                     echo 'Error: ' . mysql_error();
                                 }
