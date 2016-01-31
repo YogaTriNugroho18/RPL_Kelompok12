@@ -31,7 +31,7 @@ if (isset($_POST['send'])) {
 		if ($update) {
 			mysql_query("DELETE FROM orders WHERE table_id = '$table_id'");
 		}
-		echo '<script>alert("Payment sent");window.location="../waiter";</script>';
+		echo '<script>alert("Payment sent");window.location="../waiter.php";</script>';
 	}
 }
 ?>
