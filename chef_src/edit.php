@@ -40,7 +40,7 @@
                                             }
 
                                             if ($update_query) {
-                                                echo'<script>alert("Data successfully updated.");window.location="chef";</script>';
+                                                echo'<script>alert("Data successfully updated.");window.location="chef.php";</script>';
                                             } else {
                                                 echo "Error :" . mysql_error();
                                             }
