@@ -7,7 +7,7 @@ $query = "UPDATE orders SET done = '1' WHERE order_id = '$id'";
 $sql = mysql_query($query);
 
 if ($sql) {
-	echo '<script>alert("Order done");window.location="../chef";</script>';
+	echo '<script>alert("Order done");window.location="../chef.php";</script>';
 } else {
 	echo mysql_error();
 }
