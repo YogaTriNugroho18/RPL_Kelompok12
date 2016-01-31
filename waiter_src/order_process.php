@@ -8,7 +8,7 @@ if (isset($_POST['order'])) {
 	$qty = $_POST['qty'];
 
 	if ($table_id == '' || $qty == '') {
-		echo '<script>alert("Table or Quantity cannot be empty");window.location="../waiter";</script>';
+		echo '<script>alert("Table or Quantity cannot be empty");window.location="../waiter.php";</script>';
 	} else {
 		$query = "SELECT menu_price FROM menus WHERE menu_id = '$id'";
 		$sql = mysql_query($query);
@@ -22,7 +22,7 @@ if (isset($_POST['order'])) {
 		$insert_query = mysql_query("INSERT INTO orders (employee_id, table_id, menu_id, qty) VALUES ('$empId', '$table_id', '$id', '$qty')");
 
 		if ($insert_query) {
-			echo '<script>alert("Order Success");window.location="../waiter";</script>';
+			echo '<script>alert("Order Success");window.location="../waiter.php";</script>';
 		} else {
 			echo mysql_errno();
 			die();
