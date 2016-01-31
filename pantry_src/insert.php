@@ -32,7 +32,7 @@ $exp = date('Y-m-d', strtotime(str_replace('-', '/', $expired)));
 											$sql_insert = mysql_query($insert_query);
 
 											if ($sql_insert) {
-												echo'<script>alert("Data successfully added.");window.location="pantry";</script>';
+												echo'<script>alert("Data successfully added.");window.location="pantry.php";</script>';
 											} else {
 												echo "Error :" . mysql_error();
 											}
