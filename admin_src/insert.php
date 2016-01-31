@@ -35,7 +35,7 @@ $employee_type = isSecure(@$_POST['employee_type']);
                                     	$sql_insert = mysql_query($insert_query);
 
                                     	if ($sql_insert) {
-                                    		echo'<script>alert("Data successfully added.");window.location="admin";</script>';
+                                    		echo'<script>alert("Data successfully added.");window.location="admin.php";</script>';
                                     	} else {
                                     		echo "Error :" . mysql_error();
                                     	}
