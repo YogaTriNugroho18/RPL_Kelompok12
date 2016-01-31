@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if (! isset($_SESSION['chef'])) {
-    header('Location: home');
+    echo '<script>window.location="home";</script>';
 }
 include('config/config.php');
 include('function/isSecure.php');

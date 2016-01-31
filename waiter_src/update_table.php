@@ -16,7 +16,7 @@ if ($available == '0') {
 
 $update = mysql_query($update_query);
 if ($update) {
-	header('location: ../waiter');
+	echo '<script>window.location="../waiter";</script>';
 } else {
 	echo mysql_errno();
 }

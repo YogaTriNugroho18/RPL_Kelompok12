@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if (! isset($_SESSION['cashier'])) {
-    header('Location: home');
+    echo '<script>window.location="home";</script>';
 }
 include('config/config.php');
 include('function/isSecure.php');
@@ -56,6 +56,10 @@ include('function/isSecure.php');
     </div>
 
 <?php require('body/script.php'); ?>
+<!-- Data Tables -->
+<script src="assets/js/jquery.datatables.min.js"></script>
+<script src="assets/js/datatables.bootstrap.min.js"></script>
+<script src="assets/js/nicescroll.js"></script>
 <script type="text/javascript">
 		jQuery(function ($) {
             $.supersized({
@@ -79,6 +83,13 @@ include('function/isSecure.php');
             });
         });
         
+</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#datatables-payment').dataTable({
+        "ordering": false
+    });
+  });
 </script>
 </body>
 </html>

@@ -19,7 +19,8 @@ $sql = mysql_query($query);
                         <li class="price"><p><?php echo 'Table ' . $id; ?></p></li>
                         <li>
                             <ul class="options">
-                                <li><div class="input-field col s12"></div>
+                                <li>
+                                    <div class="input-field col s12"></div>
                                 </li>
                                 <li>
                                 <?php 

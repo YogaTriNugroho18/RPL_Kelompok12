@@ -18,22 +18,22 @@ if (isset($_POST['login'])) {
     if (($row == 1) && $data['password'] == $password) {
         if ($employee_type == 'Admin') {
             $_SESSION['admin'] = $data['employee_id'];
-            header('Location: ../admin');
+            echo '<script>window.location="../admin";</script>';
         } elseif ($employee_type == 'Waiter') {
             $_SESSION['waiter'] = $data['employee_id'];
-            header('Location: ../waiter');
+            echo '<script>window.location="../waiter";</script>';
         } elseif ($employee_type == 'Chef') {
             $_SESSION['chef'] = $data['employee_id'];
-            header('Location: ../chef');
+            echo '<script>window.location="../chef";</script>';
         } elseif ($employee_type == 'CS') {
            $_SESSION['cs'] = $data['employee_id'];
-           header('Location: ../customerservice');
+           echo '<script>window.location="../customerservice";</script>';
         } elseif ($employee_type == 'Pantry') {
             $_SESSION['pantry'] = $data['employee_id'];
-            header('Location: ../pantry');
+            echo '<script>window.location="../pantry";</script>';
         } elseif ($employee_type == 'Cashier') {
             $_SESSION['cashier'] = $data['employee_id'];
-            header('Location: ../cashier');
+            echo '<script>window.location="../cashier";</script>';
         }
     } else {
         echo '<script>alert("Invalid username or password");window.location="../home";</script>';

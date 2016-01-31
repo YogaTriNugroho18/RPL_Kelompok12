@@ -16,7 +16,7 @@ $sql = mysql_query($query);
                     <h4>Manage Payment</h4>
                 </div>
                 <div class="responsive-table">
-                    <table id="datatables-employee" class="table highlight table-bordered" cellspacing="0">
+                    <table id="datatables-payment" class="table highlight table-bordered" cellspacing="0">
                         <thead>
                             <tr>
                                 <th class="text-center">Order ID</th>
