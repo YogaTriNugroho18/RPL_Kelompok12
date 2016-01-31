@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if (! isset($_SESSION['admin'])) {
-	echo '<script>window.location="home";</script>';
+	echo '<script>window.location="home.php";</script>';
 }
 include('config/config.php');
 include('function/isSecure.php');
